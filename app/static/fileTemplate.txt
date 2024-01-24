@@ -1,0 +1,6 @@
+/Motion_Graphics/AE/FileStructure_BG.jpg
+/Animation/GENAC_MAYA/workspace.mel
+/PM/Project_details_team_communication/Project_Communication_Email_Template.docx
+/PM/Project_Checklist/Project_Initiation_Checklist.xls
+/PM/Schedule_Overview/001_Schedule_Overview_Template_RP.xlsx
+/PM/09-18-2012_Viscira_Project_Risk_Assessment_v2-2.docx

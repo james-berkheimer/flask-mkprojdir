@@ -1,0 +1,9 @@
+Dear Support,
+
+{{ user.username }} has created a new project directory on Optimus.  Please set the proper permissions on the following directory:
+
+{{ path }}
+
+Sincerely,
+
+Make Project Directory App

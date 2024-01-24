@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Making Project Directories</h1>
+    <form method="post", action="{{ url_for('main.mkproj') }}">
+        {{ mkproj.hidden_tag() }}
+        <!--<label>
+            This is where the out out log goes.
+        </label>-->
+        <br>        
+        {% for line in log %}
+        <span style="color: blue;"> {{ line }}</span>
+        <br>
+        {% endfor %}
+        <br>
+    </form>
+    
+{% endblock %}

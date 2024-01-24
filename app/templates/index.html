@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Hi, {{ current_user.username }}! Let's make a directory.</h1>
+    <br>
+    <div class="grid-container">
+        <div class="grid-item">
+            {% if form %}
+            <form method="post", action="{{ url_for('main.index') }}">
+                {{ form.hidden_tag() }}
+                <p>
+                    <label>Project Type:</label>
+                    {{ form.project_type }}
+                     
+                     <!--<font color="red">  For putting projects into the PITCH or INTERNAL directories</font>-->
+                </p>
+                <p>
+                    <label>Project Client:</label>
+                    <br>
+                    {{ form.client }}
+                    {% for error in form.client.errors %}
+                    <span style="color: red;"> {{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    <label>Project Brand:</label>
+                    <br>
+                    {{ form.brand }}
+                    
+                    <!--<font color="red">  <---- Name of the project branding</font>-->
+                    {% for error in form.brand.errors %}
+                    <span style="color: red;"> {{ error }}</span>            
+                    {% endfor %}
+                </p>
+                <p>
+                    <label>Project Solution:</label>            
+                    <br>
+                    {{ form.solution }}
+                    {% for error in form.solution.errors %}
+                    <span style="color: red;"> {{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    <label>Client Code:</label>            
+                    <br>
+                    {{ form.client_code }}
+                    {% for error in form.client_code.errors %}
+                    <span style="color: red;"> {{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.addField() }}
+                    <div class="subDirBox"; name="subDirList" id="DivContainer"></div>
+                    {{form.hiddenNum}}
+                </p>
+                {{ form.submit() }}
+                <br>
+            </form>
+        </div>
+        
+        <!--<hr>-->
+        
+        <div class="grid-item">
+            <h3><u>Make Project Guide</u></h3>
+            <p>
+                <ul>
+                    <li><b>Project Type:</b> <font color="red">  To create directories in:
+                    <font color="E7CF38">PITCH</font>
+                    , 
+                    <font color="E7CF38">INTERNAL</font>
+                    , or
+                    <font color="E7CF38">CLIENT</font>
+                    directories.</font></li>
+                </ul>
+            </p>            
+            <p>
+                <ul>
+                    <li><b>Client:</b> <font color="red">
+                    The name of the client. <font color="E7CF38">i.e. <i>Lilly</i></font>
+                    </font></li>
+                </ul>
+            </p>            
+            <p>
+                <ul>
+                    <li><b>Brand:</b> <font color="red">
+                    Branded or Unbranded project. <font color="E7CF38">i.e. <i> Galcanezumab</i></font> or <font color="E7CF38">i.e. <i>Health Education.</i></font>
+                    </font></li>
+                </ul>
+            </p>            
+            <p>
+                <ul>
+                    <li><b>Project Solution:</b> <font color="red">
+                    Brief description of the project . <font color="E7CF38">i.e. <i>Acute_Migraine_Vid_SPAN</i></font>
+                    </font></li>
+                </ul>
+            </p>            
+            <p>
+                <ul>
+                    <li><b>Job Code:</b> <font color="red">
+                    Job code from the SOW. <font color="E7CF38">i.e. <i>19-4456</i></font>
+                    </font></li>
+                </ul>
+            </p>            
+            <p>
+                <ul>
+                    <li><b>Add Directory:</b> <font color="red">
+                    This is for adding sub-directories below the Solution directory.  Not standard but is available for flexibility
+                    <!--<font color="E7CF38">i.e. <i>Acute_Migraine_Vid_SPAN</i></font>-->
+                    </font></li>
+                </ul>
+            </p>
+            
+            <h4><u>Notes:</u></h4>
+            <p>
+                <ul>
+                    <li>The name <font color="E7CF38"><b>Animation</b></font> is an illegal name because it conflicts with tools used in Animation</li>
+                </ul>
+                <ul>
+                    <li>All spaces in names are replaced with underscores. <font color="E7CF38">i.e. <i>Health Education -> Health_Education</i></font></li>
+                </ul>
+            </p>   
+        </div>
+        
+    </div>
+    {% endif %}    
+{% endblock %}

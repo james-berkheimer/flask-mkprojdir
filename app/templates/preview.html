@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Project File Path Preview</h1>
+    <form method="post", action="{{ url_for('main.preview') }}">
+        {{ preview.hidden_tag() }}
+        {{preview.hiddenFilePath}}
+        {{preview.hiddenProjectCode}}
+        
+        <u>Project Code:</u>
+        <label id="codeLabel">
+            {{projectCode}}
+        </label>
+        <br>        
+        <u>Project Path:</u>
+        <label id="pathLabel">
+            {{previewpath}}
+        </label>
+        <label hidden=true, id="hiddenpathlabel">
+            {{path}}
+        </label>
+        <br>
+        {{ preview.makeProject }}
+    </form>
+    
+{% endblock %}
